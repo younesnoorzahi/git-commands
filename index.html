@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>راهنمای کامل Git</title>
+  <link href="https://v1.fontapi.ir/css/Vazir:400;700" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f1f3f6;
+      --text: #1c1e21;
+      --card: #ffffff;
+      --code-bg: #2d3436;
+      --code-text: #dfe6e9;
+      --accent: #3498db;
+    }
+    body.dark {
+      --bg: #121212;
+      --text: #f5f5f5;
+      --card: #1e1e1e;
+      --code-bg: #2d3436;
+      --code-text: #dfe6e9;
+      --accent: #00aaff;
+    }
+    body {
+      font-family: Vazir, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 30px;
+      transition: 0.4s;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .section {
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 25px;
+      margin-bottom: 30px;
+      transition: 0.4s;
+    }
+    h2 {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      color: var(--accent);
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    th {
+      background: var(--accent);
+      color: white;
+    }
+    pre {
+      position: relative;
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      direction: ltr;
+      margin-top: 10px;
+      margin-bottom: 25px;
+    }
+    pre code {
+      font-family: Consolas, monospace;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #0984e3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: 0.3s;
+    }
+    .copy-btn:hover {
+      background: #74b9ff;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()">🌙 تغییر تم</button>
+
+  <h1>راهنمای کامل Git</h1>
+
+  <div class="section">
+    <h2>🔍 Git چیست؟</h2>
+    <p>Git یک سیستم کنترل نسخه توزیع‌شده است که برای مدیریت تاریخچه تغییرات و همکاری تیمی در پروژه‌ها استفاده می‌شود.</p>
+  </div>
+
+  <div class="section">
+    <h2>📘 مفاهیم پایه</h2>
+    <table>
+      <tr><th>مفهوم</th><th>توضیح</th></tr>
+      <tr><td>Repository</td><td>مخزن پروژه و تاریخچه آن</td></tr>
+      <tr><td>Commit</td><td>ثبت تغییرات</td></tr>
+      <tr><td>Branch</td><td>شاخه‌ای جداگانه برای توسعه</td></tr>
+      <tr><td>Merge</td><td>ادغام شاخه‌ها</td></tr>
+      <tr><td>Clone</td><td>کپی پروژه از ریموت</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>⚙️ دستورات مهم Git</h2>
+
+    <h3>🛠️ پیکربندی اولیه</h3>
+    <pre><button class="copy-btn">📋</button><code>git config --global user.name "Your Name"
+git config --global user.email "your@email.com"</code></pre>
+
+    <h3>📁 شروع پروژه</h3>
+    <pre><button class="copy-btn">📋</button><code>git init
+git clone &lt;url&gt;</code></pre>
+
+    <h3>📝 کار با فایل‌ها</h3>
+    <pre><button class="copy-btn">📋</button><code>git status
+git add .
+git commit -m "پیام کامیت"</code></pre>
+
+    <h3>📜 مشاهده تاریخچه</h3>
+    <pre><button class="copy-btn">📋</button><code>git log
+git diff
+git show &lt;commit&gt;</code></pre>
+
+    <h3>🧪 مدیریت شاخه‌ها</h3>
+    <pre><button class="copy-btn">📋</button><code>git branch
+git checkout -b new-branch
+git merge branch-name
+git branch -d branch-name</code></pre>
+
+    <h3>🌐 ارتباط با ریموت</h3>
+    <pre><button class="copy-btn">📋</button><code>git remote add origin &lt;url&gt;
+git push -u origin main
+git pull</code></pre>
+
+    <h3>♻️ بازگشت به نسخه قبلی</h3>
+    <pre><button class="copy-btn">📋</button><code>git fetch
+git reset --hard &lt;commit&gt;
+git revert &lt;commit&gt;</code></pre>
+
+    <h3>🧹 مخفی‌سازی تغییرات موقت</h3>
+    <pre><button class="copy-btn">📋</button><code>git stash
+git stash list
+git stash apply</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>🧠 خلاصه سریع دستورات پرکاربرد</h2>
+    <table>
+      <tr><th>عمل</th><th>دستور</th></tr>
+      <tr><td>شروع پروژه</td><td><code>git init</code> یا <code>git clone</code></td></tr>
+      <tr><td>ثبت تغییرات</td><td><code>git add . && git commit -m "msg"</code></td></tr>
+      <tr><td>ارسال</td><td><code>git push</code></td></tr>
+      <tr><td>دریافت</td><td><code>git pull</code></td></tr>
+      <tr><td>شاخه جدید</td><td><code>git checkout -b new-branch</code></td></tr>
+      <tr><td>ادغام</td><td><code>git merge branch</code></td></tr>
+    </table>
+  </div>
+
+  <script>
+    // کپی کردن کدها
+    document.querySelectorAll('.copy-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const code = button.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          button.innerText = "✅";
+          setTimeout(() => button.innerText = "📋", 1500);
+        });
+      });
+    });
+
+    // حالت دارک مود
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+
+</body>
+</html>
