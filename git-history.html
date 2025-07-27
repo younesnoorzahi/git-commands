@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>راهنمای Git</title>
+    <link href="https://v1.fontapi.ir/css/Vazir:400;700" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #f1f3f6;
+            --text: #1c1e21;
+            --card: #ffffff;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --accent: #3498db;
+        }
+
+        body.dark {
+            --bg: #121212;
+            --text: #f5f5f5;
+            --card: #1e1e1e;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --accent: #00aaff;
+        }
+
+        body {
+            font-family: Vazir, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding-top: 80px;
+            margin: 0;
+            transition: 0.4s;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            margin-top: auto;
+        }
+
+        .section {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            margin: 20px auto;
+            max-width: 900px;
+            transition: 0.4s;
+        }
+
+        h2 {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: var(--accent);
+            margin-top: 20px;
+        }
+
+        pre {
+            position: relative;
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            direction: ltr;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        pre code {
+            font-family: Consolas, monospace;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #0984e3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #74b9ff;
+        }
+
+        .dark-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 999;
+            background: var(--accent);
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            user-select: none;
+            font-weight: 700;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+        .dark-toggle:hover {
+            background: #2580cc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- دکمه تغییر تم شناور -->
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+
+    <h1>تاریخچه Git</h1>
+
+    <div class="section">
+        <h2>📜 بررسی تاریخچه تغییرات در Git</h2>
+        <p>یکی از مهم‌ترین ویژگی‌های Git، امکان مشاهده و پیگیری دقیق تغییراتی‌ست که در طول زمان در پروژه ایجاد شده‌اند.
+            این قابلیت نه تنها برای توسعه فردی، بلکه در کار تیمی نیز حیاتی است.</p>
+
+        <h3>🔍 git log</h3>
+        <p>برای دیدن لیست تمام commitها همراه با نویسنده، تاریخ و پیام:</p>
+        <pre><button class="copy-btn">📋</button><code>git log</code></pre>
+
+        <h3>📌 git log --oneline</h3>
+        <p>برای نمایش خلاصه‌ commitها در یک خط:</p>
+        <pre><button class="copy-btn">📋</button><code>git log --oneline</code></pre>
+
+        <h3>🧠 git diff</h3>
+        <p>برای دیدن تفاوت فایل‌های تغییر یافته نسبت به آخرین commit:</p>
+        <pre><button class="copy-btn">📋</button><code>git diff</code></pre>
+        <p>یا برای مقایسه بین دو commit مشخص:</p>
+        <pre><button class="copy-btn">📋</button><code>git diff commit1 commit2</code></pre>
+
+        <h3>🪪 git show</h3>
+        <p>برای دیدن جزئیات کامل یک commit خاص:</p>
+        <pre><button class="copy-btn">📋</button><code>git show abc1234</code></pre>
+
+        <h3>🕵️‍♂️ فیلتر تاریخچه</h3>
+        <p>مشاهده تغییرات فقط روی یک فایل خاص:</p>
+        <pre><button class="copy-btn">📋</button><code>git log path/to/file</code></pre>
+        <p>یا نمایش commitهای نویسنده خاص:</p>
+        <pre><button class="copy-btn">📋</button><code>git log --author="Ali"</code></pre>
+
+        <h3>🔁 نمایش گراف تاریخچه</h3>
+        <p>برای دیدن ساختار شاخه‌ها به‌صورت تصویری:</p>
+        <pre><button class="copy-btn">📋</button><code>git log --oneline --graph --all</code></pre>
+
+        <h3>✅ جمع‌بندی</h3>
+        <p>با استفاده از این دستورات می‌توانید به‌راحتی گذشته پروژه را بررسی کرده، تغییرات را دنبال کرده و در صورت نیاز
+            به نسخه‌های قبلی بازگردید. این ابزارها پایه‌ی مدیریت حرفه‌ای پروژه در Git هستند.</p>
+    </div>
+
+    <script>
+        // کپی کد
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const code = button.nextElementSibling.innerText;
+                navigator.clipboard.writeText(code).then(() => {
+                    button.innerText = "✅";
+                    setTimeout(() => button.innerText = "📋", 1500);
+                });
+            });
+        });
+
+        // تغییر حالت دارک
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+        }
+    </script>
+</body>
+
+</html>
