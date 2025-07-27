@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>مقدمات گیت و نصب آن</title>
+  <link href="https://v1.fontapi.ir/css/Vazir:400;700" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f1f3f6;
+      --text: #1c1e21;
+      --card: #ffffff;
+      --code-bg: #2d3436;
+      --code-text: #dfe6e9;
+      --accent: #3498db;
+    }
+    body.dark {
+      --bg: #121212;
+      --text: #f5f5f5;
+      --card: #1e1e1e;
+      --code-bg: #000000;
+      --code-text: #dfe6e9;
+      --accent: #00aaff;
+    }
+    body {
+      font-family: Vazir, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 30px;
+      transition: 0.4s;
+      min-height: 100vh;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 700;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+    }
+    .dark-toggle:hover {
+      background: #2580cc;
+    }
+    .section {
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 25px;
+      margin-bottom: 30px;
+      transition: background-color 0.4s, color 0.4s;
+    }
+    h2 {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      color: var(--accent);
+      margin-top: 20px;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    th {
+      background: var(--accent);
+      color: white;
+    }
+    pre {
+      position: relative;
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 15px 15px 15px 45px;
+      border-radius: 8px;
+      overflow-x: auto;
+      direction: ltr;
+      margin-top: 10px;
+      margin-bottom: 25px;
+      font-family: Consolas, monospace;
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;  /* اینجا سمت راست */
+      background: #0984e3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: background-color 0.3s;
+      user-select: none;
+    }
+    .copy-btn:hover {
+      background: #74b9ff;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="dark-toggle" aria-label="تغییر تم" onclick="toggleDarkMode()">🌙 تغییر تم</button>
+
+  <h1>مقدمات گیت و نصب آن</h1>
+
+  <div class="section">
+    <h2>گیت چیست؟</h2>
+    <p>گیت (Git) یه سیستم کنترل نسخه خیلی معروف و پرکاربرده که برنامه‌نویس‌ها و تیم‌ها ازش استفاده می‌کنن تا کدهاشون رو مدیریت کنن. با گیت می‌تونی تغییرات فایل‌هات رو ذخیره کنی، به نسخه‌های قبلی برگردی، با چند نفر همزمان روی یه پروژه کار کنی و همه چیز رو مرتب و منظم نگه داری.</p>
+  </div>
+
+  <div class="section">
+    <h2>چرا گیت؟</h2>
+    <p>قبل از گیت، مدیریت تغییرات کدها سخت بود و ممکن بود نسخه‌های مختلف بهم بخورن یا اطلاعات از دست بره. اما گیت این مشکلات رو حل کرده و کار باهاش ساده و سریع شده.</p>
+  </div>
+
+  <div class="section">
+    <h2>نصب گیت</h2>
+    <p>برای نصب گیت، کافیه به سایت رسمی گیت به آدرس <a href="https://git-scm.com" target="_blank" rel="noopener noreferrer">git-scm.com</a> بری و نسخه مناسب سیستم‌عاملت رو دانلود و نصب کنی. گیت روی ویندوز، مک و لینوکس قابل نصب و استفاده است.</p>
+
+    <h3>مراحل نصب روی ویندوز:</h3>
+    <ol>
+      <li>وارد سایت <a href="https://git-scm.com" target="_blank" rel="noopener noreferrer">git-scm.com</a> شو.</li>
+      <li>روی دکمه دانلود ویندوز کلیک کن.</li>
+      <li>فایل دانلود شده رو اجرا کن و مراحل نصب رو پیش برو (می‌تونی تنظیمات پیش‌فرض رو قبول کنی).</li>
+      <li>بعد از نصب، ترمینال Git Bash رو باز کن تا دستورات گیت رو اجرا کنی.</li>
+    </ol>
+
+    <h3>نصب روی مک:</h3>
+    <p>اگر مک داری، ساده‌ترین راه استفاده از Homebrew هست. ترمینال رو باز کن و این دستور رو بزن:</p>
+    <pre><button class="copy-btn" title="کپی کد">📋</button><code>brew install git</code></pre>
+
+    <h3>نصب روی لینوکس:</h3>
+    <p>بسته به توزیعت، مثلا اوبونتو:</p>
+    <pre><button class="copy-btn" title="کپی کد">📋</button><code>sudo apt update
+sudo apt install git</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>بعد از نصب</h2>
+    <p>برای اطمینان از نصب درست، تو ترمینال بنویس:</p>
+    <pre><button class="copy-btn" title="کپی کد">📋</button><code>git --version</code></pre>
+    <p>اگر نسخه گیت نمایش داده شد یعنی نصب موفق بوده.</p>
+  </div>
+
+  <div class="section">
+    <h2>تنظیمات اولیه گیت</h2>
+    <p>برای اینکه گیت بدونه کی هستی و تغییرات رو به چه کسی نسبت بده، باید نام و ایمیل خودتو تنظیم کنی:</p>
+    <pre><button class="copy-btn" title="کپی کد">📋</button><code>git config --global user.name "نام شما"
+git config --global user.email "ایمیل شما"</code></pre>
+  </div>
+
+  <script>
+    // کپی کردن کدها با دکمه
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          btn.innerText = '✅';
+          setTimeout(() => btn.innerText = '📋', 1500);
+        });
+      });
+    });
+
+    // تغییر تم تاریک و روشن
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+      // ذخیره تنظیم در localStorage
+      if(document.body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // بارگذاری تم ذخیره شده هنگام شروع
+    window.addEventListener('DOMContentLoaded', () => {
+      if(localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+      }
+    });
+  </script>
+
+</body>
+</html>
