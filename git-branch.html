@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>شاخه‌ها (Branch) در Git</title>
+    <link href="https://v1.fontapi.ir/css/Vazir:400;700" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #f1f3f6;
+            --text: #1c1e21;
+            --card: #ffffff;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --accent: #3498db;
+            --btn-bg: #0984e3;
+            --btn-hover-bg: #74b9ff;
+        }
+
+        body.dark {
+            --bg: #121212;
+            --text: #f5f5f5;
+            --card: #1e1e1e;
+            --code-bg: #000000;
+            --code-text: #dfe6e9;
+            --accent: #00aaff;
+            --btn-bg: #00aaff;
+            --btn-hover-bg: #74c9ff;
+        }
+
+        body {
+            font-family: Vazir, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 30px;
+            transition: background-color 0.4s, color 0.4s;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .dark-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 999;
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            user-select: none;
+            font-weight: 700;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .dark-toggle:hover {
+            background: var(--btn-hover-bg);
+        }
+
+        .section {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        h2 {
+            color: var(--accent);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 1.6rem;
+        }
+
+        h3 {
+            color: var(--accent);
+            margin-top: 25px;
+            font-weight: 600;
+        }
+
+        pre {
+            position: relative;
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px 20px 20px 50px;
+            border-radius: 10px;
+            overflow-x: auto;
+            direction: ltr;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            font-family: Consolas, monospace;
+            font-size: 1rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--btn-bg);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background-color 0.3s;
+            user-select: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .copy-btn:hover {
+            background: var(--btn-hover-bg);
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-right: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        ol {
+            padding-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        ol li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        code {
+            background-color: #3b3f4a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+            font-size: 0.95rem;
+            direction: ltr;
+            color: var(--code-text);
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+
+    <h1>آشنایی با شاخه‌ها (Branch) در Git</h1>
+
+    <div class="section">
+        <p>در گیت، شاخه یا همان <strong>Branch</strong> یکی از مهم‌ترین ابزارها برای مدیریت کد و همکاری روی پروژه‌هاست.
+            شاخه‌ها به ما اجازه می‌ده بدون اینکه روی نسخه اصلی یا شاخه اصلی پروژه (معمولاً <code>main</code> یا
+            <code>master</code>) تاثیر بگذاریم، تغییرات جدید ایجاد کنیم.</p>
+
+        <h2>شاخه چیست؟</h2>
+        <p>شاخه در واقع یک مسیر جداگانه برای توسعه‌ی پروژه است. وقتی شاخه جدیدی می‌سازیم، عملاً از نقطه‌ای مشخص از پروژه
+            کپی می‌گیریم و می‌توانیم روی آن تغییرات انجام دهیم بدون اینکه به شاخه اصلی پروژه آسیبی برسد.</p>
+
+        <h2>چرا شاخه‌ها مهم هستند؟</h2>
+        <ul>
+            <li>جلوگیری از بهم‌ریختگی کد اصلی: هر کد جدید یا ویژگی تازه روی یک شاخه جداگانه توسعه داده می‌شود تا اگر
+                مشکلی داشت، کد اصلی سالم باقی بماند.</li>
+            <li>کار تیمی آسان‌تر: هر عضو تیم روی شاخه خودش کار می‌کند و وقتی همه چیز درست بود، تغییرات را به شاخه اصلی
+                اضافه می‌کند.</li>
+            <li>امکان آزمایش و توسعه موازی: می‌توان چندین ویژگی یا باگ را همزمان روی شاخه‌های مختلف پیگیری کرد.</li>
+        </ul>
+
+        <h2>ساخت و مدیریت شاخه‌ها</h2>
+
+        <h3>ساخت شاخه جدید</h3>
+        <pre><button class="copy-btn" title="کپی کد">📋</button><code>git checkout -b &lt;نام-شاخه&gt;</code></pre>
+        <p>مثلاً:</p>
+        <pre><button class="copy-btn" title="کپی کد">📋</button><code>git checkout -b feature/login</code></pre>
+
+        <h3>رفتن به یک شاخه موجود</h3>
+        <pre><button class="copy-btn" title="کپی کد">📋</button><code>git checkout &lt;نام-شاخه&gt;</code></pre>
+        <p>مثلاً:</p>
+        <pre><button class="copy-btn" title="کپی کد">📋</button><code>git checkout main</code></pre>
+
+        <h3>دیدن لیست شاخه‌ها</h3>
+        <pre><button class="copy-btn" title="کپی کد">📋</button><code>git branch</code></pre>
+        <p>شاخه‌ای که در حال حاضر روی آن هستید با علامت <code>*</code> مشخص می‌شود.</p>
+
+        <h2>ادغام شاخه‌ها (Merge)</h2>
+        <p>بعد از اینکه روی شاخه جدید تغییرات لازم را انجام دادید و همه چیز درست بود، می‌توانید آن را به شاخه اصلی ادغام
+            کنید:</p>
+        <ol>
+            <li>ابتدا به شاخه اصلی برمی‌گردید:</li>
+        </ol>
+        <pre><button class="copy-btn" title="کپی کد">📋</button><code>git checkout main</code></pre>
+        <ol start="2">
+            <li>سپس شاخه تغییرات را با شاخه اصلی ادغام می‌کنید:</li>
+        </ol>
+        <pre><button class="copy-btn" title="کپی کد">📋</button><code>git merge &lt;نام-شاخه&gt;</code></pre>
+        <p>مثلاً:</p>
+        <pre><button class="copy-btn" title="کپی کد">📋</button><code>git merge feature/login</code></pre>
+
+        <h2>حذف شاخه</h2>
+        <pre><button class="copy-btn" title="کپی کد">📋</button><code>git branch -d &lt;نام-شاخه&gt;</code></pre>
+
+        <h2>نکات مهم</h2>
+        <ul>
+            <li>قبل از ادغام شاخه‌ها، بهتر است تغییرات شاخه اصلی را بروز کنید (pull کنید) تا تداخل (conflict) کمتری
+                داشته باشید.</li>
+            <li>اگر در زمان ادغام، تغییرات دو شاخه با هم تداخل داشتند، باید به صورت دستی تداخل‌ها را حل کنید.</li>
+            <li>استفاده درست از شاخه‌ها باعث می‌شود پروژه مرتب، قابل مدیریت و قابل توسعه باشد.</li>
+        </ul>
+    </div>
+
+    <script>
+        // کپی کردن کدها با دکمه
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const code = btn.nextElementSibling.innerText;
+                navigator.clipboard.writeText(code).then(() => {
+                    btn.innerText = '✅';
+                    setTimeout(() => btn.innerText = '📋', 1500);
+                });
+            });
+        });
+
+        // تغییر تم تاریک و روشن
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+            if (document.body.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // بارگذاری تم ذخیره شده هنگام شروع
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
