@@ -2,167 +2,263 @@
 <html lang="fa" dir="rtl">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>آموزش شروع با Git</title>
-  <link href="https://cdn.jsdelivr.net/npm/vazirmatn@32.102.0/Vazirmatn-font-face.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مقدمات گیت و نصب آن</title>
+  <link href="https://v1.fontapi.ir/css/Vazir:400;700" rel="stylesheet" />
   <style>
     :root {
-      --text-color: #1f1f1f;
-      --background: #fdfdfd;
-      --code-bg: #f4f4f4;
-      --code-text: #333;
-      --header-bg: #ffffff;
-      --btn-bg: #007acc;
-      --btn-text: #ffffff;
+      --bg: #f1f3f6;
+      --text: #1c1e21;
+      --card: #ffffff;
+      --code-bg: #2d3436;
+      --code-text: #dfe6e9;
+      --accent: #3498db;
+      --btn-bg: #0984e3;
+      --btn-hover-bg: #74b9ff;
     }
 
-    body.dark-mode {
-      --text-color: #e4e4e4;
-      --background: #121212;
-      --code-bg: #1e1e1e;
-      --code-text: #e4e4e4;
-      --header-bg: #1a1a1a;
-      --btn-bg: #00bcd4;
-      --btn-text: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
+    body.dark {
+      --bg: #121212;
+      --text: #f5f5f5;
+      --card: #1e1e1e;
+      --code-bg: #000000;
+      --code-text: #dfe6e9;
+      --accent: #00aaff;
+      --btn-bg: #00aaff;
+      --btn-hover-bg: #74c9ff;
     }
 
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Vazirmatn', sans-serif;
-      background-color: var(--background);
-      color: var(--text-color);
-      transition: all 0.3s ease-in-out;
+      font-family: Vazir, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 30px;
+      transition: background-color 0.4s, color 0.4s;
+      min-height: 100vh;
     }
 
-    header {
-      background-color: var(--header-bg);
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #ccc;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 20px;
-    }
-
-    header h1 a {
-      text-decoration: none;
-      color: var(--text-color);
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      font-weight: 700;
     }
 
     .dark-toggle {
-      margin-right: auto;
-      padding: 6px 12px;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 16px;
       border: none;
-      border-radius: 6px;
-      background-color: var(--btn-bg);
-      color: var(--btn-text);
+      border-radius: 8px;
       cursor: pointer;
-      transition: 0.3s;
+      user-select: none;
+      font-weight: 700;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
     }
 
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+    .dark-toggle:hover {
+      background: var(--btn-hover-bg);
+    }
+
+    .section {
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      padding: 30px 25px;
+      margin-bottom: 30px;
+      transition: background-color 0.4s, color 0.4s;
     }
 
     h2 {
-      font-size: 22px;
-      margin-bottom: 15px;
-    }
-
-    p {
-      font-size: 16px;
+      color: var(--accent);
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 8px;
       margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 1.6rem;
     }
 
-    .code-block {
+    h3 {
+      color: var(--accent);
+      margin-top: 25px;
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 12px 15px;
+      text-align: center;
+    }
+
+    th {
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+    }
+
+    pre {
       position: relative;
-      background-color: var(--code-bg);
+      background: var(--code-bg);
       color: var(--code-text);
-      padding: 15px 50px 15px 15px;
+      padding: 20px 20px 20px 50px;
       border-radius: 10px;
-      direction: ltr;
-      font-family: monospace;
       overflow-x: auto;
-      margin-bottom: 20px;
+      direction: ltr;
+      margin-top: 15px;
+      margin-bottom: 30px;
+      font-family: Consolas, monospace;
+      font-size: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
     }
 
     .copy-btn {
       position: absolute;
       top: 10px;
       right: 10px;
-      background-color: var(--btn-bg);
-      color: var(--btn-text);
+      background: var(--btn-bg);
+      color: white;
       border: none;
-      padding: 5px 10px;
       border-radius: 6px;
+      padding: 6px 12px;
       cursor: pointer;
-      transition: 0.3s;
+      font-size: 0.85rem;
+      transition: background-color 0.3s;
+      user-select: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .copy-btn:hover {
+      background: var(--btn-hover-bg);
+    }
+
+    ol {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1><a href="#init">آموزش گیت - شروع پروژه</a></h1>
-    <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
-  </header>
 
-  <section id="init">
-    <h2>🚀 شروع پروژه با Git</h2>
-    <p>
-      برای شروع کار با گیت در یک پروژه، فقط کافیه مراحل زیر رو طی کنی:
-    </p>
+  <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
 
-    <div class="code-block">
-      <button onclick="copyCode(this)" class="copy-btn">📋 کپی</button>
-      <pre><code>
-cd my-project
-git init
-git status
-git add .
-git commit -m "اولین کامیت: شروع پروژه"
-      </code></pre>
-    </div>
+  <h1>مقدمات گیت و نصب آن</h1>
 
-    <p>
-      🔹 <strong>git init</strong>: گیت رو در پروژه فعال می‌کنه<br>
-      🔹 <strong>git add .</strong>: همه‌ی فایل‌ها رو برای commit آماده می‌کنه<br>
-      🔹 <strong>git commit</strong>: اولین ذخیره در تاریخچه گیت انجام میشه
-    </p>
-  </section>
+  <div class="section">
+    <h2>گیت چیست؟</h2>
+    <p>گیت (Git) یه سیستم کنترل نسخه خیلی معروف و پرکاربرده که برنامه‌نویس‌ها و تیم‌ها ازش استفاده می‌کنن تا کدهاشون رو
+      مدیریت کنن. با گیت می‌تونی تغییرات فایل‌هات رو ذخیره کنی، به نسخه‌های قبلی برگردی، با چند نفر همزمان روی یه پروژه
+      کار کنی و همه چیز رو مرتب و منظم نگه داری.</p>
+  </div>
+
+  <div class="section">
+    <h2>چرا گیت؟</h2>
+    <p>قبل از گیت، مدیریت تغییرات کدها سخت بود و ممکن بود نسخه‌های مختلف بهم بخورن یا اطلاعات از دست بره. اما گیت این
+      مشکلات رو حل کرده و کار باهاش ساده و سریع شده.</p>
+  </div>
+
+  <div class="section">
+    <h2>نصب گیت</h2>
+    <p>برای نصب گیت، کافیه به سایت رسمی گیت به آدرس <a href="https://git-scm.com" target="_blank"
+        rel="noopener noreferrer">git-scm.com</a> بری و نسخه مناسب سیستم‌عاملت رو دانلود و نصب کنی. گیت روی ویندوز، مک و
+      لینوکس قابل نصب و استفاده است.</p>
+
+    <h3>مراحل نصب روی ویندوز:</h3>
+    <ol>
+      <li>وارد سایت <a href="https://git-scm.com" target="_blank" rel="noopener noreferrer">git-scm.com</a> شو.</li>
+      <li>روی دکمه دانلود ویندوز کلیک کن.</li>
+      <li>فایل دانلود شده رو اجرا کن و مراحل نصب رو پیش برو (می‌تونی تنظیمات پیش‌فرض رو قبول کنی).</li>
+      <li>بعد از نصب، ترمینال Git Bash رو باز کن تا دستورات گیت رو اجرا کنی.</li>
+    </ol>
+
+    <h3>نصب روی مک:</h3>
+    <p>اگر مک داری، ساده‌ترین راه استفاده از Homebrew هست. ترمینال رو باز کن و این دستور رو بزن:</p>
+    <pre><button class="copy-btn" title="کپی کد">📋</button><code>brew install git</code></pre>
+
+    <h3>نصب روی لینوکس:</h3>
+    <p>بسته به توزیعت، مثلا اوبونتو:</p>
+    <pre><button class="copy-btn" title="کپی کد">📋</button><code>sudo apt update
+sudo apt install git</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>بعد از نصب</h2>
+    <p>برای اطمینان از نصب درست، تو ترمینال بنویس:</p>
+    <pre><button class="copy-btn" title="کپی کد">📋</button><code>git --version</code></pre>
+    <p>اگر نسخه گیت نمایش داده شد یعنی نصب موفق بوده.</p>
+  </div>
+
+  <div class="section">
+    <h2>تنظیمات اولیه گیت</h2>
+    <p>برای اینکه گیت بدونه کی هستی و تغییرات رو به چه کسی نسبت بده، باید نام و ایمیل خودتو تنظیم کنی:</p>
+    <pre><button class="copy-btn" title="کپی کد">📋</button><code>git config --global user.name "نام شما"
+git config --global user.email "ایمیل شما"</code></pre>
+  </div>
 
   <script>
-    function copyCode(button) {
-      const code = button.nextElementSibling.innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        button.innerText = '✅ کپی شد';
-        setTimeout(() => button.innerText = '📋 کپی', 2000);
+    // کپی کردن کدها با دکمه
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          btn.innerText = '✅';
+          setTimeout(() => btn.innerText = '📋', 1500);
+        });
       });
-    }
+    });
 
+    // تغییر تم تاریک و روشن
     function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-      const isDark = document.body.classList.contains("dark-mode");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+      document.body.classList.toggle('dark');
+      if (document.body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
     }
 
-    (function () {
-      if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark-mode");
+    // بارگذاری تم ذخیره شده هنگام شروع
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
       }
-    })();
+    });
   </script>
+
 </body>
 
 </html>
