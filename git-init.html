@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>مقدمات گیت و نصب آن</title>
+  <title>کامیت‌ها در Git</title>
   <link href="https://v1.fontapi.ir/css/Vazir:400;700" rel="stylesheet" />
   <style>
     :root {
@@ -17,7 +16,6 @@
       --btn-bg: #0984e3;
       --btn-hover-bg: #74b9ff;
     }
-
     body.dark {
       --bg: #121212;
       --text: #f5f5f5;
@@ -28,7 +26,6 @@
       --btn-bg: #00aaff;
       --btn-hover-bg: #74c9ff;
     }
-
     body {
       font-family: Vazir, sans-serif;
       background: var(--bg);
@@ -37,14 +34,12 @@
       transition: background-color 0.4s, color 0.4s;
       min-height: 100vh;
     }
-
     h1 {
       text-align: center;
       font-size: 2rem;
       margin-bottom: 30px;
       font-weight: 700;
     }
-
     .dark-toggle {
       position: fixed;
       top: 20px;
@@ -58,14 +53,12 @@
       cursor: pointer;
       user-select: none;
       font-weight: 700;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
       transition: background-color 0.3s;
     }
-
     .dark-toggle:hover {
       background: var(--btn-hover-bg);
     }
-
     .section {
       background: var(--card);
       border-radius: 12px;
@@ -74,7 +67,6 @@
       margin-bottom: 30px;
       transition: background-color 0.4s, color 0.4s;
     }
-
     h2 {
       color: var(--accent);
       border-bottom: 3px solid var(--accent);
@@ -83,43 +75,11 @@
       font-weight: 700;
       font-size: 1.6rem;
     }
-
     h3 {
       color: var(--accent);
       margin-top: 25px;
       font-weight: 600;
     }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-      font-size: 1rem;
-    }
-
-    th,
-    td {
-      border: 1px solid #ccc;
-      padding: 12px 15px;
-      text-align: center;
-    }
-
-    th {
-      background: var(--accent);
-      color: white;
-      font-weight: 700;
-    }
-
     pre {
       position: relative;
       background: var(--code-bg);
@@ -134,9 +94,8 @@
       font-size: 1rem;
       white-space: pre-wrap;
       word-wrap: break-word;
-      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
     }
-
     .copy-btn {
       position: absolute;
       top: 10px;
@@ -150,20 +109,11 @@
       font-size: 0.85rem;
       transition: background-color 0.3s;
       user-select: none;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-
     .copy-btn:hover {
       background: var(--btn-hover-bg);
     }
-
-    ol {
-      margin-left: 20px;
-      margin-bottom: 20px;
-      line-height: 1.7;
-      font-size: 1rem;
-    }
-
     p {
       font-size: 1rem;
       line-height: 1.7;
@@ -171,62 +121,33 @@
     }
   </style>
 </head>
-
 <body>
 
   <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
 
-  <h1>مقدمات گیت و نصب آن</h1>
+  <h1>کامیت‌ها در Git</h1>
 
   <div class="section">
-    <h2>گیت چیست؟</h2>
-    <p>گیت (Git) یه سیستم کنترل نسخه خیلی معروف و پرکاربرده که برنامه‌نویس‌ها و تیم‌ها ازش استفاده می‌کنن تا کدهاشون رو
-      مدیریت کنن. با گیت می‌تونی تغییرات فایل‌هات رو ذخیره کنی، به نسخه‌های قبلی برگردی، با چند نفر همزمان روی یه پروژه
-      کار کنی و همه چیز رو مرتب و منظم نگه داری.</p>
-  </div>
-
-  <div class="section">
-    <h2>چرا گیت؟</h2>
-    <p>قبل از گیت، مدیریت تغییرات کدها سخت بود و ممکن بود نسخه‌های مختلف بهم بخورن یا اطلاعات از دست بره. اما گیت این
-      مشکلات رو حل کرده و کار باهاش ساده و سریع شده.</p>
-  </div>
-
-  <div class="section">
-    <h2>نصب گیت</h2>
-    <p>برای نصب گیت، کافیه به سایت رسمی گیت به آدرس <a href="https://git-scm.com" target="_blank"
-        rel="noopener noreferrer">git-scm.com</a> بری و نسخه مناسب سیستم‌عاملت رو دانلود و نصب کنی. گیت روی ویندوز، مک و
-      لینوکس قابل نصب و استفاده است.</p>
-
-    <h3>مراحل نصب روی ویندوز:</h3>
-    <ol>
-      <li>وارد سایت <a href="https://git-scm.com" target="_blank" rel="noopener noreferrer">git-scm.com</a> شو.</li>
-      <li>روی دکمه دانلود ویندوز کلیک کن.</li>
-      <li>فایل دانلود شده رو اجرا کن و مراحل نصب رو پیش برو (می‌تونی تنظیمات پیش‌فرض رو قبول کنی).</li>
-      <li>بعد از نصب، ترمینال Git Bash رو باز کن تا دستورات گیت رو اجرا کنی.</li>
-    </ol>
-
-    <h3>نصب روی مک:</h3>
-    <p>اگر مک داری، ساده‌ترین راه استفاده از Homebrew هست. ترمینال رو باز کن و این دستور رو بزن:</p>
-    <pre><button class="copy-btn" title="کپی کد">📋</button><code>brew install git</code></pre>
-
-    <h3>نصب روی لینوکس:</h3>
-    <p>بسته به توزیعت، مثلا اوبونتو:</p>
-    <pre><button class="copy-btn" title="کپی کد">📋</button><code>sudo apt update
-sudo apt install git</code></pre>
-  </div>
-
-  <div class="section">
-    <h2>بعد از نصب</h2>
-    <p>برای اطمینان از نصب درست، تو ترمینال بنویس:</p>
-    <pre><button class="copy-btn" title="کپی کد">📋</button><code>git --version</code></pre>
-    <p>اگر نسخه گیت نمایش داده شد یعنی نصب موفق بوده.</p>
-  </div>
-
-  <div class="section">
-    <h2>تنظیمات اولیه گیت</h2>
-    <p>برای اینکه گیت بدونه کی هستی و تغییرات رو به چه کسی نسبت بده، باید نام و ایمیل خودتو تنظیم کنی:</p>
-    <pre><button class="copy-btn" title="کپی کد">📋</button><code>git config --global user.name "نام شما"
-git config --global user.email "ایمیل شما"</code></pre>
+    <p>کامیت‌ها مثل نقطه‌های ذخیره‌سازی در تاریخچه پروژه هستن. هر کامیت شامل یک پیام، اطلاعات تغییرات و شناسه‌ای منحصربه‌فرد (Hash) است که به شما اجازه می‌ده به راحتی به هر نسخه‌ای که خواستی برگردی.</p>
+    <p>برای ایجاد یک کامیت، ابتدا باید تغییراتت رو به مرحله آماده‌سازی (Stage) ببری و بعد اون‌ها رو کامیت کنی:</p>
+    <pre><button class="copy-btn" title="کپی کد">📋</button><code>git add &lt;فایل_یا_مسیر&gt;
+git commit -m "پیام کامیت توصیفی و مختصر"</code></pre>
+    <p>توصیه می‌شه پیام کامیت کوتاه، واضح و بیانگر تغییرات انجام شده باشه. مثلا:</p>
+    <pre><button class="copy-btn" title="کپی کد">📋</button><code>git commit -m "اصلاح باگ نمایش لیست کاربران"</code></pre>
+    <p>هر کامیت در گیت یک شناسه هش (Hash) یکتا داره که معمولاً به صورت ۴۰ کاراکتر هگزادسیمال نمایش داده می‌شه. با این شناسه می‌تونی به راحتی تاریخچه پروژه رو مرور و به نسخه‌های قبلی برگردی.</p>
+    <h3>مشاهده تاریخچه کامیت‌ها</h3>
+    <p>برای دیدن لیست کامیت‌ها، از دستور زیر استفاده می‌کنیم:</p>
+    <pre><button class="copy-btn" title="کپی کد">📋</button><code>git log</code></pre>
+    <p>دستور <code>git log</code> تاریخچه کامل تغییرات، پیام‌ها و شناسه کامیت‌ها را نمایش می‌دهد. برای خروج از این نمایش، کلید <kbd>q</kbd> را بزن.</p>
+    <h3>نمایش جزئیات تغییرات یک کامیت خاص</h3>
+    <pre><button class="copy-btn" title="کپی کد">📋</button><code>git show &lt;شناسه_کامیت&gt;</code></pre>
+    <p>این دستور تغییرات دقیق انجام شده در آن کامیت را به همراه پیام آن نمایش می‌دهد.</p>
+    <h3>بازگشت به نسخه قبلی</h3>
+    <p>اگر نیاز باشه به نسخه قبلی برگردی، می‌تونی از دستورات زیر استفاده کنی:</p>
+    <pre><button class="copy-btn" title="کپی کد">📋</button><code>git checkout &lt;شناسه_کامیت&gt;
+یا
+git reset --hard &lt;شناسه_کامیت&gt;</code></pre>
+    <p>هشدار: استفاده از <code>git reset --hard</code> تغییرات محلی غیر ذخیره شده را حذف می‌کند، پس با احتیاط استفاده کن.</p>
   </div>
 
   <script>
@@ -244,7 +165,7 @@ git config --global user.email "ایمیل شما"</code></pre>
     // تغییر تم تاریک و روشن
     function toggleDarkMode() {
       document.body.classList.toggle('dark');
-      if (document.body.classList.contains('dark')) {
+      if(document.body.classList.contains('dark')) {
         localStorage.setItem('theme', 'dark');
       } else {
         localStorage.setItem('theme', 'light');
@@ -253,12 +174,11 @@ git config --global user.email "ایمیل شما"</code></pre>
 
     // بارگذاری تم ذخیره شده هنگام شروع
     window.addEventListener('DOMContentLoaded', () => {
-      if (localStorage.getItem('theme') === 'dark') {
+      if(localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark');
       }
     });
   </script>
 
 </body>
-
 </html>
