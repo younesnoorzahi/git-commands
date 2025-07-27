@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>آموزش شروع با Git</title>
+  <link href="https://cdn.jsdelivr.net/npm/vazirmatn@32.102.0/Vazirmatn-font-face.css" rel="stylesheet" />
+  <style>
+    :root {
+      --text-color: #1f1f1f;
+      --background: #fdfdfd;
+      --code-bg: #f4f4f4;
+      --code-text: #333;
+      --header-bg: #ffffff;
+      --btn-bg: #007acc;
+      --btn-text: #ffffff;
+    }
+
+    body.dark-mode {
+      --text-color: #e4e4e4;
+      --background: #121212;
+      --code-bg: #1e1e1e;
+      --code-text: #e4e4e4;
+      --header-bg: #1a1a1a;
+      --btn-bg: #00bcd4;
+      --btn-text: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: var(--background);
+      color: var(--text-color);
+      transition: all 0.3s ease-in-out;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    header h1 a {
+      text-decoration: none;
+      color: var(--text-color);
+    }
+
+    .dark-toggle {
+      margin-right: auto;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .code-block {
+      position: relative;
+      background-color: var(--code-bg);
+      color: var(--code-text);
+      padding: 15px 50px 15px 15px;
+      border-radius: 10px;
+      direction: ltr;
+      font-family: monospace;
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="#init">آموزش گیت - شروع پروژه</a></h1>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙/☀️</button>
+  </header>
+
+  <section id="init">
+    <h2>🚀 شروع پروژه با Git</h2>
+    <p>
+      برای شروع کار با گیت در یک پروژه، فقط کافیه مراحل زیر رو طی کنی:
+    </p>
+
+    <div class="code-block">
+      <button onclick="copyCode(this)" class="copy-btn">📋 کپی</button>
+      <pre><code>
+cd my-project
+git init
+git status
+git add .
+git commit -m "اولین کامیت: شروع پروژه"
+      </code></pre>
+    </div>
+
+    <p>
+      🔹 <strong>git init</strong>: گیت رو در پروژه فعال می‌کنه<br>
+      🔹 <strong>git add .</strong>: همه‌ی فایل‌ها رو برای commit آماده می‌کنه<br>
+      🔹 <strong>git commit</strong>: اولین ذخیره در تاریخچه گیت انجام میشه
+    </p>
+  </section>
+
+  <script>
+    function copyCode(button) {
+      const code = button.nextElementSibling.innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        button.innerText = '✅ کپی شد';
+        setTimeout(() => button.innerText = '📋 کپی', 2000);
+      });
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    }
+
+    (function () {
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    })();
+  </script>
+</body>
+</html>
