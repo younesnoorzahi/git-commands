@@ -30,7 +30,7 @@
       font-family: Vazir, sans-serif;
       background: var(--bg);
       color: var(--text);
-      padding: 30px;
+      padding: 70px;
       transition: 0.4s;
     }
 
@@ -131,18 +131,19 @@
 <body>
 
   <header class="header"
-    style="position: fixed; top: 0; right: 0; left: 0; height: 60px; background: var(--card); color: var(--text); display: flex; align-items: center; padding: 0 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 1000; overflow: hidden; direction: rtl;">
+    style="position: fixed; top: 0; right: 0; left: 0; height: 60px; background: var(--card); color: var(--text); display: flex; align-items: center; padding: 0 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 1000; overflow-x: auto; white-space: nowrap; direction: rtl;">
 
     <nav class="navbar"
-      style="overflow-x: auto; white-space: nowrap; display: flex; gap: 20px; padding-bottom: 4px; margin-left: auto; scrollbar-width: thin; direction: rtl; justify-content: flex-end; text-align: right;">
-      <a href="git-intro.html" style="color: var(--text); text-decoration: none;">نصب</a>
-      <a href="git-init.html" style="color: var(--text); text-decoration: none;">کامیت</a>
-      <a href="git-history.html" style="color: var(--text); text-decoration: none;">تاریخچه</a>
-      <a href="git-branch.html" style="color: var(--text); text-decoration: none;">شاخه‌ها</a>
-      <a href="github.html" style="color: var(--text); text-decoration: none;">گیت هاب</a>
-      <a href="conflict.html" style="color: var(--text); text-decoration: none;">کانفلکت ریموت</a>
+      style="display: flex; gap: 20px; padding-bottom: 4px; direction: rtl; text-align: right; align-items: center;">
+      <a href="git-intro.html" style="color: var(--text); text-decoration: none; padding: 8px 10px;">نصب</a>
+      <a href="git-init.html" style="color: var(--text); text-decoration: none; padding: 8px 10px;">کامیت</a>
+      <a href="git-history.html" style="color: var(--text); text-decoration: none; padding: 8px 10px;">تاریخچه</a>
+      <a href="git-branch.html" style="color: var(--text); text-decoration: none; padding: 8px 10px;">شاخه‌ها</a>
+      <a href="github.html" style="color: var(--text); text-decoration: none; padding: 8px 10px;">گیت هاب</a>
+      <a href="conflict.html" style="color: var(--text); text-decoration: none; padding: 8px 10px;">کانفلکت ریموت</a>
     </nav>
   </header>
+
 
   <button onclick="toggleDarkMode()"
     style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; background: var(--accent); color: white; border: none; padding: 10px 14px; border-radius: 8px; cursor: pointer;">
