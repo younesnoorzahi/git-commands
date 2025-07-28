@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>مقدمات گیت و نصب آن</title>
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" type="image/svg+xml">
   <link href="https://v1.fontapi.ir/css/Vazir:400;700" rel="stylesheet">
   <style>
     :root {
@@ -14,6 +16,7 @@
       --code-text: #dfe6e9;
       --accent: #3498db;
     }
+
     body.dark {
       --bg: #121212;
       --text: #f5f5f5;
@@ -22,6 +25,7 @@
       --code-text: #dfe6e9;
       --accent: #00aaff;
     }
+
     body {
       font-family: Vazir, sans-serif;
       background: var(--bg);
@@ -30,11 +34,13 @@
       transition: 0.4s;
       min-height: 100vh;
     }
+
     h1 {
       text-align: center;
       font-size: 2rem;
       margin-bottom: 30px;
     }
+
     .dark-toggle {
       position: fixed;
       top: 20px;
@@ -48,12 +54,14 @@
       cursor: pointer;
       user-select: none;
       font-weight: 700;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
       transition: background-color 0.3s;
     }
+
     .dark-toggle:hover {
       background: #2580cc;
     }
+
     .section {
       background: var(--card);
       border-radius: 12px;
@@ -62,38 +70,47 @@
       margin-bottom: 30px;
       transition: background-color 0.4s, color 0.4s;
     }
+
     h2 {
       color: var(--accent);
       border-bottom: 2px solid var(--accent);
       padding-bottom: 5px;
       margin-bottom: 15px;
     }
+
     h3 {
       color: var(--accent);
       margin-top: 20px;
     }
+
     a {
       color: var(--accent);
       text-decoration: none;
       transition: color 0.3s;
     }
+
     a:hover {
       text-decoration: underline;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
       font-size: 0.95rem;
     }
-    th, td {
+
+    th,
+    td {
       border: 1px solid #ccc;
       padding: 10px;
     }
+
     th {
       background: var(--accent);
       color: white;
     }
+
     pre {
       position: relative;
       background: var(--code-bg);
@@ -109,10 +126,12 @@
       white-space: pre-wrap;
       word-wrap: break-word;
     }
+
     .copy-btn {
       position: absolute;
       top: 8px;
-      right: 8px;  /* اینجا سمت راست */
+      right: 8px;
+      /* اینجا سمت راست */
       background: #0984e3;
       color: white;
       border: none;
@@ -123,11 +142,13 @@
       transition: background-color 0.3s;
       user-select: none;
     }
+
     .copy-btn:hover {
       background: #74b9ff;
     }
   </style>
 </head>
+
 <body>
 
   <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
@@ -136,17 +157,22 @@
 
   <div class="section">
     <h2>گیت چیست؟</h2>
-    <p>گیت (Git) یه سیستم کنترل نسخه خیلی معروف و پرکاربرده که برنامه‌نویس‌ها و تیم‌ها ازش استفاده می‌کنن تا کدهاشون رو مدیریت کنن. با گیت می‌تونی تغییرات فایل‌هات رو ذخیره کنی، به نسخه‌های قبلی برگردی، با چند نفر همزمان روی یه پروژه کار کنی و همه چیز رو مرتب و منظم نگه داری.</p>
+    <p>گیت (Git) یه سیستم کنترل نسخه خیلی معروف و پرکاربرده که برنامه‌نویس‌ها و تیم‌ها ازش استفاده می‌کنن تا کدهاشون رو
+      مدیریت کنن. با گیت می‌تونی تغییرات فایل‌هات رو ذخیره کنی، به نسخه‌های قبلی برگردی، با چند نفر همزمان روی یه پروژه
+      کار کنی و همه چیز رو مرتب و منظم نگه داری.</p>
   </div>
 
   <div class="section">
     <h2>چرا گیت؟</h2>
-    <p>قبل از گیت، مدیریت تغییرات کدها سخت بود و ممکن بود نسخه‌های مختلف بهم بخورن یا اطلاعات از دست بره. اما گیت این مشکلات رو حل کرده و کار باهاش ساده و سریع شده.</p>
+    <p>قبل از گیت، مدیریت تغییرات کدها سخت بود و ممکن بود نسخه‌های مختلف بهم بخورن یا اطلاعات از دست بره. اما گیت این
+      مشکلات رو حل کرده و کار باهاش ساده و سریع شده.</p>
   </div>
 
   <div class="section">
     <h2>نصب گیت</h2>
-    <p>برای نصب گیت، کافیه به سایت رسمی گیت به آدرس <a href="https://git-scm.com" target="_blank" rel="noopener noreferrer">git-scm.com</a> بری و نسخه مناسب سیستم‌عاملت رو دانلود و نصب کنی. گیت روی ویندوز، مک و لینوکس قابل نصب و استفاده است.</p>
+    <p>برای نصب گیت، کافیه به سایت رسمی گیت به آدرس <a href="https://git-scm.com" target="_blank"
+        rel="noopener noreferrer">git-scm.com</a> بری و نسخه مناسب سیستم‌عاملت رو دانلود و نصب کنی. گیت روی ویندوز، مک و
+      لینوکس قابل نصب و استفاده است.</p>
 
     <h3>مراحل نصب روی ویندوز:</h3>
     <ol>
@@ -196,7 +222,7 @@ git config --global user.email "ایمیل شما"</code></pre>
     function toggleDarkMode() {
       document.body.classList.toggle('dark');
       // ذخیره تنظیم در localStorage
-      if(document.body.classList.contains('dark')) {
+      if (document.body.classList.contains('dark')) {
         localStorage.setItem('theme', 'dark');
       } else {
         localStorage.setItem('theme', 'light');
@@ -205,11 +231,12 @@ git config --global user.email "ایمیل شما"</code></pre>
 
     // بارگذاری تم ذخیره شده هنگام شروع
     window.addEventListener('DOMContentLoaded', () => {
-      if(localStorage.getItem('theme') === 'dark') {
+      if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark');
       }
     });
   </script>
 
 </body>
+
 </html>
