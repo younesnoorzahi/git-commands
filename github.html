@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>آشنایی با GitHub</title>
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+        type="image/svg+xml">
+    <link href="https://v1.fontapi.ir/css/Vazir" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #f1f3f6;
+            --text: #1c1e21;
+            --card: #ffffff;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --accent: #3498db;
+            --btn-bg: #0984e3;
+            --btn-hover-bg: #74b9ff;
+        }
+
+        body.dark {
+            --bg: #121212;
+            --text: #f5f5f5;
+            --card: #1e1e1e;
+            --code-bg: #000000;
+            --code-text: #dfe6e9;
+            --accent: #00aaff;
+            --btn-bg: #00aaff;
+            --btn-hover-bg: #74c9ff;
+        }
+
+        body {
+            font-family: Vazir, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 30px;
+            transition: background-color 0.4s, color 0.4s;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .dark-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 999;
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            user-select: none;
+            font-weight: 700;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .dark-toggle:hover {
+            background: var(--btn-hover-bg);
+        }
+
+        .section {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        h2 {
+            color: var(--accent);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 1.6rem;
+        }
+
+        pre {
+            position: relative;
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px 20px 20px 50px;
+            border-radius: 10px;
+            overflow-x: auto;
+            direction: ltr;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            font-family: Consolas, monospace;
+            font-size: 1rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--btn-bg);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background-color 0.3s;
+            user-select: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .copy-btn:hover {
+            background: var(--btn-hover-bg);
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        code {
+            background-color: #3b3f4a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+            font-size: 0.95rem;
+            direction: ltr;
+            color: var(--code-text);
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="dark-toggle" onclick="toggleDark()">🌙</button>
+
+    <h1>آشنایی و استفاده از GitHub</h1>
+
+    <div class="section">
+        <h2>🔍 GitHub چیست؟</h2>
+        <p>GitHub یک پلتفرم محبوب برای میزبانی کد، همکاری تیمی و مدیریت پروژه است که بر پایه Git کار می‌کند.</p>
+    </div>
+
+    <div class="section">
+        <h2>🚀 شروع سریع</h2>
+        <ol>
+            <li>ثبت‌نام در <a href="https://github.com" target="_blank">github.com</a></li>
+            <li>ساخت Repository جدید</li>
+            <li>اتصال پروژه خود به مخزن GitHub</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>🔧 اتصال پروژه به GitHub</h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">کپی</button>git init
+git add .
+git commit -m "اولین کامیت"
+git remote add origin https://github.com/username/repo.git
+git push -u origin main</pre>
+    </div>
+
+    <div class="section">
+        <h2>📥 کلون کردن پروژه</h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">کپی</button>git clone https://github.com/username/repository.git</pre>
+    </div>
+
+    <div class="section">
+        <h2>📦 GitHub Pages</h2>
+        <p>GitHub این امکان را می‌دهد تا سایت استاتیک خود را به رایگان روی اینترنت منتشر کنید.</p>
+        <p>مسیر: Settings → Pages → انتخاب branch → آدرس: <code>https://username.github.io/repo/</code></p>
+    </div>
+
+    <div class="section">
+        <h2>📌 سایر امکانات مفید</h2>
+        <ul>
+            <li><strong>Issues:</strong> گزارش باگ و پیگیری مشکلات</li>
+            <li><strong>Pull Requests:</strong> پیشنهاد تغییرات در کد</li>
+            <li><strong>Actions:</strong> اجرای خودکار تست و دیپلوی</li>
+            <li><strong>Projects:</strong> مدیریت وظایف به سبک کانبان</li>
+            <li><strong>Wiki:</strong> مستندسازی پروژه</li>
+        </ul>
+    </div>
+
+    <script>
+        function copyCode(btn) {
+            const code = btn.parentElement.textContent.replace("کپی", "").trim();
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerText = "کپی شد!";
+                setTimeout(() => { btn.innerText = "کپی"; }, 1500);
+            });
+        }
+
+        function toggleDark() {
+            document.body.classList.toggle("dark");
+        }
+    </script>
+
+</body>
+
+</html>
