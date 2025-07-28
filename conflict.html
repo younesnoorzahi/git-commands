@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>حل کانفلیکت‌های گیت</title>
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+        type="image/svg+xml">
+    <link href="https://v1.fontapi.ir/css/Vazir:400;700" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #f1f3f6;
+            --text: #1c1e21;
+            --card: #ffffff;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --accent: #3498db;
+            --btn-bg: #0984e3;
+            --btn-hover-bg: #74b9ff;
+        }
+
+        body.dark {
+            --bg: #121212;
+            --text: #f5f5f5;
+            --card: #1e1e1e;
+            --code-bg: #000000;
+            --code-text: #dfe6e9;
+            --accent: #00aaff;
+            --btn-bg: #00aaff;
+            --btn-hover-bg: #74c9ff;
+        }
+
+        body {
+            font-family: Vazir, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 30px;
+            transition: background-color 0.4s, color 0.4s;
+            min-height: 100vh;
+        }
+
+        .dark-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 999;
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-toggle:hover {
+            background: var(--btn-hover-bg);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .section {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px 25px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--accent);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 1.6rem;
+        }
+
+        pre {
+            position: relative;
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px 20px 20px 50px;
+            border-radius: 10px;
+            overflow-x: auto;
+            direction: ltr;
+            font-family: Consolas, monospace;
+            font-size: 1rem;
+            white-space: pre-wrap;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--btn-bg);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            user-select: none;
+        }
+
+        .copy-btn:hover {
+            background: var(--btn-hover-bg);
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        code {
+            background-color: #3b3f4a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+            font-size: 0.95rem;
+            direction: ltr;
+            color: var(--code-text);
+        }
+    </style>
+</head>
+
+<body>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+    <h1>بررسی و حل کانفلیکت‌های (Conflict) ریموت در Git</h1>
+
+    <div class="section">
+        <h2>کانفلیکت چیست؟</h2>
+        <p>
+            کانفلیکت (Conflict) زمانی رخ می‌دهد که دو تغییر مختلف به یک فایل مشابه در دو مکان مختلف (مثلاً ریموت و
+            لوکال) اعمال شده باشند و Git نتواند به‌صورت خودکار آن‌ها را ترکیب کند.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>زمان بروز کانفلیکت</h2>
+        <ul>
+            <li>هنگام اجرای <code>git pull</code> و اختلاف بین تغییرات محلی و ریموت</li>
+            <li>هنگام اجرای <code>git merge</code> بین دو شاخه متضاد</li>
+            <li>در هنگام ری‌بیس (<code>git rebase</code>)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>نحوه حل کانفلیکت</h2>
+        <ol>
+            <li>Git به‌صورت خودکار فایل‌های متضاد را با نشانه‌هایی مشخص می‌کند.</li>
+            <li>شما باید فایل را باز کرده و نسخه‌ی نهایی را به‌صورت دستی انتخاب کنید.</li>
+            <li>پس از رفع کانفلیکت، مراحل زیر را دنبال کنید:</li>
+        </ol>
+
+        <pre><code>git add conflict-file.txt
+git commit -m "حل کانفلیکت"</code><button class="copy-btn" onclick="copyToClipboard(this)">کپی</button></pre>
+    </div>
+
+    <div class="section">
+        <h2>نمونه نشانه‌گذاری کانفلیکت</h2>
+        <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+محتوای نسخه محلی
+=======
+محتوای نسخه ریموت
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/main</code><button class="copy-btn" onclick="copyToClipboard(this)">کپی</button></pre>
+        <p>
+            شما باید یکی از بخش‌ها یا ترکیبی از هر دو را نگه دارید و نشانه‌ها را حذف کنید.
+        </p>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+        }
+
+        function copyToClipboard(button) {
+            const code = button.previousElementSibling.innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = 'کپی شد!';
+                setTimeout(() => {
+                    button.textContent = 'کپی';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+
+</html>
