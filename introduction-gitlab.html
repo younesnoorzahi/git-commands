@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>آشنایی با GitLab و مشارکت در پروژه‌ها</title>
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+        type="image/svg+xml">
+    <link href="https://v1.fontapi.ir/css/Vazir:400;700" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f1f3f6;
+            --text: #1c1e21;
+            --card: #ffffff;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --accent: #3498db;
+            --btn-bg: #0984e3;
+            --btn-hover-bg: #74b9ff;
+        }
+
+        body.dark {
+            --bg: #121212;
+            --text: #f5f5f5;
+            --card: #1e1e1e;
+            --code-bg: #000000;
+            --code-text: #dfe6e9;
+            --accent: #00aaff;
+            --btn-bg: #00aaff;
+            --btn-hover-bg: #74c9ff;
+        }
+
+        body {
+            font-family: Vazir, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 30px;
+            transition: background-color 0.4s, color 0.4s;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .dark-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 999;
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            user-select: none;
+            font-weight: 700;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .dark-toggle:hover {
+            background: var(--btn-hover-bg);
+        }
+
+        .section {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        h2 {
+            color: var(--accent);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 1.6rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-right: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">🌙</button>
+
+    <h1>آشنایی با GitLab و مشارکت در پروژه‌ها</h1>
+
+    <div class="section">
+        <h2>GitLab چیست؟</h2>
+        <p>GitLab یک پلتفرم مبتنی بر Git است که علاوه بر مدیریت نسخه‌ها، امکانات گسترده‌ای مثل CI/CD، مدیریت پروژه و
+            همکاری تیمی را فراهم می‌کند.</p>
+    </div>
+
+    <div class="section">
+        <h2>ایجاد حساب و راه‌اندازی</h2>
+        <ul>
+            <li>ابتدا به سایت <a href="https://gitlab.com" target="_blank" rel="noopener">gitlab.com</a> مراجعه کنید و
+                ثبت‌نام کنید.</li>
+            <li>پس از ورود، می‌توانید پروژه جدید بسازید یا به پروژه‌های عمومی ملحق شوید.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>مشارکت در پروژه‌ها</h2>
+        <p>برای همکاری در یک پروژه، معمولاً مراحل زیر را طی می‌کنید:</p>
+        <ul>
+            <li>فورک (Fork) کردن پروژه اصلی به حساب خود.</li>
+            <li>کلون کردن (Clone) پروژه فورک شده روی سیستم خود.</li>
+            <li>ایجاد شاخه جدید (Branch) برای تغییرات خود.</li>
+            <li>انجام تغییرات و کامیت کردن (Commit) آن‌ها.</li>
+            <li>ارسال درخواست مرج (Merge Request) به پروژه اصلی برای بررسی و ادغام تغییرات.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>مزایای استفاده از GitLab</h2>
+        <ul>
+            <li>امکان تنظیم CI/CD برای اتوماسیون تست و انتشار.</li>
+            <li>رابط کاربری ساده و حرفه‌ای برای مدیریت پروژه.</li>
+            <li>امکان مدیریت مسائل (Issues) و وظایف تیمی.</li>
+            <li>پشتیبانی از ویکی داخلی برای مستندات پروژه.</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
