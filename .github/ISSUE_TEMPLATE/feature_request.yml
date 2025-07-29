@@ -1,0 +1,25 @@
+name: ✨ پیشنهاد ویژگی
+description: پیشنهاد اضافه کردن قابلیت یا بهبود پروژه
+title: "[FEATURE] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: feature
+    attributes:
+      label: توضیح ویژگی مورد نظر
+      description: چه چیزی می‌خوای به پروژه اضافه بشه؟
+      placeholder: مثلاً: اضافه کردن دستور git stash با توضیح و مثال
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefit
+    attributes:
+      label: این ویژگی چه کمکی می‌کنه؟
+      placeholder: مثلاً: این دستور باعث می‌شه کاربران راحت‌تر تغییرات موقت رو مدیریت کنن
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: توضیحات اضافی
+      description: هر چیزی که به نظر مفیده اضافه کن (تصویر، لینک، کد، منبع و...)

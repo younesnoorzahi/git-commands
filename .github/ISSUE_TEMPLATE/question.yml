@@ -1,0 +1,33 @@
+name: ❓ پرسش یا درخواست راهنمایی
+description: اگر سوالی درباره پروژه داری یا نیاز به راهنمایی داری از این فرم استفاده کن
+title: "[QUESTION] "
+labels: [question]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: سوال یا موضوع مورد نظر چیه؟
+      description: سوال یا ابهام خودت رو کامل توضیح بده. می‌تونی درباره‌ی دستورات، نحوه استفاده از پروژه یا هر موضوع مرتبط دیگه بپرسی.
+      placeholder: مثلا: فرق بین git pull و git fetch چیه؟
+    validations:
+      required: true
+
+  - type: textarea
+    id: tried
+    attributes:
+      label: خودت چه چیزهایی رو امتحان کردی؟
+      description: اگه قبلاً سرچ کردی یا تستی انجام دادی، اینجا بنویس.
+      placeholder: مثلاً: چندتا مقاله خوندم ولی تفاوت دقیق رو متوجه نشدم.
+
+  - type: input
+    id: related
+    attributes:
+      label: آیا سوالت به بخش خاصی از پروژه مربوطه؟
+      placeholder: مثلا: git-cheatsheet.txt یا دستور git log
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: توضیحات یا منابع اضافی
+      description: اگه لینک، تصویر، یا اطلاعات بیشتری داری اینجا بذار.
+      placeholder: لینک مقاله، تصویر خطا، یا خروجی ترمینال

@@ -1,0 +1,37 @@
+name: 🐞 گزارش باگ
+description: گزارش یک باگ یا مشکلی که در پروژه دیدی
+title: "[BUG] "
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: مشکل چیه؟
+      description: دقیقاً چه اتفاقی افتاد؟ چه چیزی انتظار داشتی؟
+      placeholder: مثلا: هنگام اجرای دستور git pull خطای ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: مراحل بازتولید باگ
+      description: مرحله‌به‌مرحله بنویس چطور میشه این مشکل رو بازتولید کرد.
+      placeholder: |
+        1. مخزن رو کلون کردم
+        2. دستور X رو زدم
+        3. با خطای Y مواجه شدم
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: انتظار داشتی چی بشه؟
+      placeholder: مثلاً انتظار داشتم که فایل‌ها به‌درستی merge بشن
+
+  - type: input
+    id: os
+    attributes:
+      label: سیستم عامل
+      placeholder: مثلاً: ویندوز 11، اوبونتو 20.04
